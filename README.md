@@ -11,4 +11,5 @@ Using the technique described by the professor in lecture I achieved a softer sh
 ## Transmission lighting
 I used these slides http://graphics.cs.cmu.edu/courses/15-468/lectures/lecture3.pdf to add basic transmission lighting. I used it on the specular scene with vacuum to diamond transmission ratio and got the following.
 ![specularrefract](./assets/scene4-refraction.png)
+
 You can see the color of the tabletop coming through the originally green ellipsoid (of which I turned off the specular component) to a slightly golden color.
