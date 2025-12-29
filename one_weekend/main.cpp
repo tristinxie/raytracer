@@ -1,19 +1,17 @@
-#include "color.h"
-#include "vec3.h"
-#include <iostream>
+#include "rtweekend.h"
+#include "camera.h"
+#include "hittable.h"
+#include "hittable_list.h"
+#include "sphere.h"
 
 int main() {
-	int image_width = 256;
-	int image_height = 256;
+	hittable_list world;
+	world.add(make_shared<sphere>(point3(0,0,-1), 0.5));
+	world.add(make_shared<sphere>(point3(0, -100.5, -1), 100));
 
-	std::cout << "P3\n" << image_width << " " << image_height << "\n255\n";
-
-	for (int row = 0; row < image_height; row++ ) {
-		std::clog << "\rScanlines remaining: " << (image_height - row) << " " << std::flush;
-		for ( int col = 0; col < image_width; col++ ){
-			auto pixel_color = color(double(col)/(image_width-1), double(row)/(image_height-1), 0);
-			write_color(std::cout, pixel_color);
-		}
-	}
-	std::clog << "\rDone.                 \n";
+	camera cam;
+	cam.aspect_ratio = 16.0/9.0;
+	cam.image_width = 400;
+	cam.samples_per_pixel = 100;
+	cam.render(world);
 }
