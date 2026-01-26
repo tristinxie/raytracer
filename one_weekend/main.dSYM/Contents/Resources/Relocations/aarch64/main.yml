@@ -1,0 +1,5 @@
+---
+triple:          'arm64-apple-darwin'
+binary-path:     '/Users/tristin/Documents/github/personal/raytracer/one_weekend/main'
+relocations:     []
+...
